@@ -11,7 +11,7 @@ import torch
 import os.path as osp
 from pprint import pprint
 from nltk.tree import *
-from Queue import Queue
+from queue import Queue
 from threading import Thread, Lock
 import time
 import argparse
@@ -69,7 +69,6 @@ def parse_sents(sents, params):
 
 
 def main(params):
-
 	dataset_splitBy = params['dataset'] + '_' + params['splitBy']
 	if not osp.isdir('cache/parsed_sents/'+dataset_splitBy):
 		os.makedirs('cache/parsed_sents/'+dataset_splitBy)
