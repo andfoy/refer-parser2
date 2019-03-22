@@ -46,10 +46,11 @@ def main(params):
 	sents = json.load(open(path_to_parsed_sents))
 
 	# parse attributes for each sent
-	if 'refcoco' in params['dataset']:
-		attparser = cocoParser.CocoParser()
-	elif 'refclef' in params['dataset']:
-		attparser = clefParser.ClefParser()
+	attparser = cocoParser.CocoParser()
+	# if 'refcoco' in params['dataset']:
+	# 	attparser = cocoParser.CocoParser()
+	# elif 'refclef' in params['dataset']:
+	# 	attparser = clefParser.ClefParser()
 
 	for i, sent in enumerate(sents):
 		parse = sent['parse']
@@ -83,4 +84,3 @@ if __name__ == '__main__':
 
 	# main
 	main(params)
-
