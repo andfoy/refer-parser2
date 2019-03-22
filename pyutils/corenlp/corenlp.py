@@ -309,7 +309,7 @@ class StanfordCoreNLP:
 
     def _spawn_corenlp(self):
         if VERBOSE:
-            print((enlp)
+            print(enlp)
         if use_winpexpect:
             self.corenlp = winpexpect.winspawn(self.start_corenlp, maxread=8192,
                 searchwindowsize=80)
