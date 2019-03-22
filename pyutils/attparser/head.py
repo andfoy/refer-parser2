@@ -3,7 +3,7 @@ __author__ = 'licheng'
 from nltk.tree import *
 
 ing_allowed = ['duckling', 'frosting', 'something', 'anything', 'thing', 'king', 'nothing',
-               'ring', 'wing', 'darling', 'building', 'painting', 'everything', 'string', 
+               'ring', 'wing', 'darling', 'building', 'painting', 'everything', 'string',
                'ceiling', 'pudding',  ]
 not_allowed = ['first', 'second', 'third', 'fourth', 'front', 'fifth', 'right', 'left']
 
@@ -101,17 +101,12 @@ if __name__ == '__main__':
     parse_tree = parse['parsetree']
     t = Tree.fromstring(parse_tree)
     t.draw()
-    print t
-    print parse['dependencies']
+    print(t)
+    print(parse['dependencies'])
 
     # vicente version
     head, idx = findHead(t, mode='vicente')
-    print 'vicente            - head: %s, idx: %s' % (head, idx)
+    print('vicente            - head: %s, idx: %s' % (head, idx))
     # licheng version
     head, idx = findHead(t, mode='licheng')
-    print 'ylc_leftNP_rightNN - head: %s, idx: %s' % (head, idx)
-
-
-
-
-
+    print('ylc_leftNP_rightNN - head: %s, idx: %s' % (head, idx))
