@@ -80,19 +80,8 @@ class configCOCO(config):
 
 if __name__ == '__main__':
     c = configCOCO()
-    print c.color_table
-    print c.size_table
-    print c.location_table
-    print c.position_table['words']
-    print c.relative_preps_table
-
-
-
-
-
-
-
-
-
-
-
+    print(c.color_table)
+    print(c.size_table)
+    print(c.location_table)
+    print(c.position_table['words'])
+    print(c.relative_preps_table)
