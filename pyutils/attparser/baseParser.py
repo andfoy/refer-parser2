@@ -11,7 +11,7 @@ from nltk.corpus import stopwords
 import os.path as osp
 # import .config as config
 from .config import configCOCO
-import head
+from .head import findHead
 
 class BaseParser():
     def __init__(self, dataset):
@@ -36,7 +36,7 @@ class BaseParser():
         self.r1, self.r2, self.r3, self.r4, self.r5, self.r6, self.r7 = [], [], [], [], [], [], []
 
         # find head word
-        self.head_word, _ = head.findHead(self._tree, mode = self._headMode)
+        self.head_word, _ = findHead(self._tree, mode = self._headMode)
         if self.head_word != '' and self.head_word != None:
             self.r1 = [wd[1]['Lemma'] for wd in self._words if wd[0] == self.head_word]
             self.r1 = [self.r1[0]]  # we only need one
