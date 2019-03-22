@@ -14,15 +14,15 @@ import head
 
 class BaseParser():
     def __init__(self, dataset):
-        if dataset == 'refclef':
-            self.config = config.configCLEF()
-            self._headMode = 'vicente'
-        elif dataset == 'refcoco' or dataset == 'refcoco+':
-            self.config = config.configCOCO()
-            self._headMode = 'licheng'
-        else:
-            print 'No configuration set yet.'
-            sys.exit()
+        # if dataset == 'refclef':
+        #     self.config = config.configCLEF()
+        #     self._headMode = 'vicente'
+        # elif dataset == 'refcoco' or dataset == 'refcoco+':
+        self.config = config.configCOCO()
+        self._headMode = 'licheng'
+        # else:
+        #     print 'No configuration set yet.'
+        #     sys.exit()
 
     def reset(self, parse):
         # load parse
@@ -130,5 +130,3 @@ if __name__ == '__main__':
 
     attParser = BaseParser('refclef')
     attParser.reset(parse)
-
-
