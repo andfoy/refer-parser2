@@ -406,15 +406,15 @@ def example5():
 
 def main():
     example1()
-    print
+    print()
     example2()
-    print
+    print()
     example3()
-    print
+    print()
     example4()
-    print
+    print()
     example5()
-    print
+    print()
 
 if __name__ == '__main__':
     main()

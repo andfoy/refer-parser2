@@ -309,7 +309,7 @@ class StanfordCoreNLP:
 
     def _spawn_corenlp(self):
         if VERBOSE:
-            print self.start_corenlp
+            print((enlp)
         if use_winpexpect:
             self.corenlp = winpexpect.winspawn(self.start_corenlp, maxread=8192,
                 searchwindowsize=80)
@@ -403,30 +403,30 @@ class StanfordCoreNLP:
         if t == 1:
             # TIMEOUT, clean up anything left in buffer
             clean_up()
-            print >>sys.stderr, {'error': "timed out after %f seconds" % max_expected_time,
+            print ({'error': "timed out after %f seconds" % max_expected_time,
                                  'input': to_send,
-                                 'output': incoming}
+                                 'output': incoming})
             raise TimeoutError("Timed out after %d seconds" % max_expected_time)
         elif t == 2:
             # EOF, probably crash CoreNLP process
-            print >>sys.stderr, {'error': "CoreNLP terminates abnormally while parsing",
+            print({'error': "CoreNLP terminates abnormally while parsing",
                                  'input': to_send,
-                                 'output': incoming}
+                                 'output': incoming})
             raise ProcessError("CoreNLP process terminates abnormally while parsing")
         elif t == 3:
             # out of memory
-            print >>sys.stderr, {'error': "WARNING: Parsing of sentence failed, possibly because of out of memory.",
+            print({'error': "WARNING: Parsing of sentence failed, possibly because of out of memory.",
                                  'input': to_send,
-                                 'output': incoming}
+                                 'output': incoming})
             raise OutOfMemoryError
 
         if VERBOSE:
-            print "%s\n%s" % ('=' * 40, incoming)
+            print("%s\n%s" % ('=' * 40, incoming))
         try:
             results = parse_parser_results(incoming)
         except Exception as e:
             if VERBOSE:
-                print traceback.format_exc()
+                print(traceback.format_exc())
             raise e
 
         return results
@@ -441,7 +441,7 @@ class StanfordCoreNLP:
             r = self._parse(text)
             return r
         except Exception as e:
-            print e  # Should probably log somewhere instead of printing
+            print(e)  # Should probably log somewhere instead of printing
             self.corenlp.close()
             self._spawn_corenlp()
             if self.serving:  # We don't want to raise the exception when acting as a server
@@ -518,10 +518,9 @@ if __name__ == '__main__':
         server.register_function(nlp.parse)
         server.register_function(nlp.raw_parse)
 
-        print 'Serving on http://%s:%s' % (options.host, options.port)
+        print('Serving on http://%s:%s' % (options.host, options.port))
         # server.serve()
         server.serve_forever()
     except KeyboardInterrupt:
-        print >>sys.stderr, "Bye."
+        print("Bye.")
         exit()
-
