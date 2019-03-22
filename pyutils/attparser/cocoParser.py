@@ -10,7 +10,7 @@ r5: [relative location and object], e.g., person under the door, dog on the tabl
 r6: [generic attribute describing r1], i.e., other JJ and dep attributes describing head word
 """
 
-from baseParser import BaseParser
+from .baseParser import BaseParser
 
 class CocoParser(BaseParser):
 
@@ -183,8 +183,3 @@ if __name__ == '__main__':
     attParser.reset(parse)
     pprint(attParser.decompose())
     pprint(attParser.leftWords())
-
-
-
-
-
