@@ -96,7 +96,7 @@ class CocoParser(BaseParser):
         '''
         if len(self.Deps['ord']) + len(self.rels['ord_prep']) == 0:
             # 1) the dog from the river
-            ForbiddenWds = self.config.position_table['words']+self.config.color_table['words']
+            ForbiddenWds = list(self.config.position_table['words'])+list(self.config.color_table['words'])
             rel_pairs = [(dep[0], dep[3]) for dep in self.Deps['prep'] if dep[0] in self.config.relative_preps_table['words']
                          if dep[3] not in ForbiddenWds]
             for pair in rel_pairs:
