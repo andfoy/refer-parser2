@@ -140,8 +140,8 @@ class CocoParser(BaseParser):
                 self.r6 += ['self']
 
         # r7: generic attribute
-        ForbiddenWds = self.config.size_table['words'] + self.config.color_table['words'] + self.config.position_table['words'] \
-                       + self.config.location_table['words'] + self.config.ordinal_table['words']
+        ForbiddenWds = list(self.config.size_table['words']) + list(self.config.color_table['words']) + list(self.config.position_table['words']) \
+                       + list(self.config.location_table['words']) + list(self.config.ordinal_table['words'])
         generic_wds = [dep[3] for dep in self.Deps['att'] if dep[3] not in ForbiddenWds]
         for gwd in generic_wds:
             gpos = [wd[1]['PartOfSpeech'] for wd in self._words if wd[0] == gwd][0]
