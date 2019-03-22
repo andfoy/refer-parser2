@@ -104,7 +104,7 @@ class CocoParser(BaseParser):
                 self.r6 += [pair[1]]
             # 2) the dog on/in/at the table
             commonDeps = self.Deps['prep_on']+self.Deps['prep_in']+self.Deps['prep_at']
-            ForbiddenWds = self.config.position_table['words']+self.config.color_table['words']
+            ForbiddenWds = list(self.config.position_table['words'])+list(self.config.color_table['words'])
             rel_pairs = [(dep[0], dep[3]) for dep in commonDeps if dep[3] not in ForbiddenWds]
             for pair in rel_pairs:
                 self.r5 += [pair[0]]
