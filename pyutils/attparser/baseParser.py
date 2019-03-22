@@ -9,7 +9,8 @@ from nltk.tree import *
 import sys
 from nltk.corpus import stopwords
 import os.path as osp
-import config
+# import .config as config
+from .config import configCOCO
 import head
 
 class BaseParser():
@@ -18,7 +19,7 @@ class BaseParser():
         #     self.config = config.configCLEF()
         #     self._headMode = 'vicente'
         # elif dataset == 'refcoco' or dataset == 'refcoco+':
-        self.config = config.configCOCO()
+        self.config = configCOCO()
         self._headMode = 'licheng'
         # else:
         #     print 'No configuration set yet.'
