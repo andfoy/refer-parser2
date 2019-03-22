@@ -28,7 +28,7 @@ import pexpect
 import tempfile
 import shutil
 import re
-from progressbar import ProgressBar, Fraction
+from .progressbar import ProgressBar, Fraction
 from unidecode import unidecode
 from subprocess import call
 import glob
