@@ -13,6 +13,7 @@ from pprint import pprint
 from nltk.tree import *
 from queue import Queue
 from threading import Thread, Lock
+from referit import REFER
 import time
 import argparse
 import json
@@ -73,24 +74,24 @@ def main(params):
 	if not osp.isdir('cache/parsed_sents/'+dataset_splitBy):
 		os.makedirs('cache/parsed_sents/'+dataset_splitBy)
 	anns = torch.load(params['data_root'])
-	sents = []
-	for im in anns:
-		masks = anns[im]
-		for mask_pos in masks:
-			mask = masks[mask_pos]
-			mask_sents = []
-			for sent in mask['sentences']:
-				mask_sents.append({'sent_id': (im, mask_pos), 'sent': sent,
-				                   'raw': sent, 'tokens': sent.split()})
-			sents += mask_sents
-			mask['sentences'] = mask_sents
+	# sents = []
+	# for im in anns:
+	# 	masks = anns[im]
+	# 	for mask_pos in masks:
+	# 		mask = masks[mask_pos]
+	# 		mask_sents = []
+	# 		for sent in mask['sentences']:
+	# 			mask_sents.append({'sent_id': (im, mask_pos), 'sent': sent,
+	# 			                   'raw': sent, 'tokens': sent.split()})
+	# 		sents += mask_sents
+	# 		mask['sentences'] = mask_sents
 	# load refer
 	# sys.path.insert(0, 'pyutils/refer')
 	# from refer import REFER
-	# refer = REFER(params['data_root'], params['dataset'], params['splitBy'])
+	refer = REFER(params['data_root'], params['dataset'], params['splitBy'])
 
 	# parse sents
-	# sents = refer.Sents.values()
+	sents = refer.sents.values()
 	parse_sents(sents, params)
 
 	# save
