@@ -91,7 +91,7 @@ def main(params):
 	refer = REFER(params['data_root'], params['dataset'], params['splitBy'])
 
 	# parse sents
-	sents = refer.sents.values()
+	sents = list(refer.sents.values())
 	parse_sents(sents, params)
 
 	# save
