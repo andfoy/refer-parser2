@@ -73,7 +73,7 @@ def main(params):
 	dataset_splitBy = params['dataset'] + '_' + params['splitBy']
 	if not osp.isdir('cache/parsed_sents/'+dataset_splitBy):
 		os.makedirs('cache/parsed_sents/'+dataset_splitBy)
-	anns = torch.load(params['data_root'])
+	# anns = torch.load(params['data_root'])
 	# sents = []
 	# for im in anns:
 	# 	masks = anns[im]
